@@ -17,27 +17,31 @@ export function ReviewsSection({ limit = 6 }: { limit?: number }) {
             title="What Vacaville drivers say after the repair"
             lede="Excerpts from publicly shared Google reviews for Fix Auto Vacaville. Ratings and wording are not altered."
           />
-          <div className="shrink-0 rounded-2xl border border-line bg-mist px-6 py-5" data-reveal>
+          <TrackedA
+            href={business.googleReviewsUrl}
+            event="reviews_link_click"
+            payload={{ location: "home_reviews" }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block shrink-0 rounded-2xl border-2 border-navy-900/10 bg-navy-900 px-6 py-5 text-white shadow-soft transition hover:border-blue-400/40 hover:bg-navy-800"
+            data-reveal
+          >
             <div className="flex items-center gap-3">
-              <StarRating rating={business.googleRating} size={20} />
+              <StarRating rating={business.googleRating} size={22} className="text-[#f5c518]" />
               <div>
-                <p className="text-2xl font-extrabold text-navy-900">{business.googleRating}</p>
-                <p className="text-sm text-slate-600">
+                <p className="text-2xl font-extrabold tabular-nums text-white">
+                  {business.googleRating}
+                  <span className="ml-1 text-base font-bold text-white/70">/ 5</span>
+                </p>
+                <p className="text-sm text-white/70">
                   {business.googleReviewCountLabel} Google reviews
                 </p>
               </div>
             </div>
-            <TrackedA
-              href={business.googleReviewsUrl}
-              event="reviews_link_click"
-              payload={{ location: "home_reviews" }}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex text-sm font-bold text-blue-600 hover:underline"
-            >
-              Read more on Google →
-            </TrackedA>
-          </div>
+            <span className="mt-4 inline-flex text-sm font-bold text-blue-400">
+              View Google Business Profile
+            </span>
+          </TrackedA>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -49,7 +53,7 @@ export function ReviewsSection({ limit = 6 }: { limit?: number }) {
               style={{ ["--reveal-delay" as string]: `${(i % 3) * 70}ms` }}
             >
               <div>
-                <StarRating rating={5} size={14} />
+                <StarRating rating={5} size={14} className="text-[#e6b800]" />
                 <p className="mt-4 text-[0.98rem] leading-relaxed text-charcoal">
                   “{r.quote}”
                 </p>

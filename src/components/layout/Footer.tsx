@@ -5,6 +5,37 @@ import { services } from "@/lib/services";
 import { TrackedA } from "@/components/ui/TrackedLink";
 import { BrandLogo } from "@/components/layout/BrandLogo";
 
+function SocialIcon({ network }: { network: (typeof business.social)[number]["network"] }) {
+  const common = {
+    className: "h-4 w-4",
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    "aria-hidden": true as const,
+  };
+
+  if (network === "facebook") {
+    return (
+      <svg {...common}>
+        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.174 2.097 15.943 2 14.643 2 11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z" />
+      </svg>
+    );
+  }
+
+  if (network === "instagram") {
+    return (
+      <svg {...common}>
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm10.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="bg-navy-950 text-white">
@@ -24,8 +55,24 @@ export function Footer() {
             rel="noopener noreferrer"
             className="mt-5 inline-flex text-sm font-bold text-blue-400 hover:text-blue-300"
           >
-            View Google Business Profile →
+            View Google Business Profile
           </TrackedA>
+          <div className="mt-6 flex flex-wrap items-center gap-2.5">
+            {business.social.map((item) => (
+              <TrackedA
+                key={item.href}
+                href={item.href}
+                event="social_click"
+                payload={{ network: item.network, location: "footer" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.label} (opens in a new tab)`}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-blue-400/50 hover:bg-blue-500/15 hover:text-blue-300"
+              >
+                <SocialIcon network={item.network} />
+              </TrackedA>
+            ))}
+          </div>
         </div>
 
         <div>

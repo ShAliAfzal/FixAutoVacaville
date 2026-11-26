@@ -14,7 +14,7 @@ export function StarRating({
   const partial = rating - full;
   return (
     <span
-      className={`inline-flex items-center gap-0.5 text-signal ${className}`}
+      className={`inline-flex items-center gap-0.5 ${className || "text-signal"}`}
       aria-label={`${rating} out of 5 stars`}
       role="img"
     >

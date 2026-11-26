@@ -88,7 +88,11 @@ export function localBusinessJsonLd() {
           name: business.brand,
           url: business.brandUrl,
         },
-        sameAs: [business.googleMapsUrl, business.brandLocationUrl],
+        sameAs: [
+          business.googleMapsUrl,
+          business.brandLocationUrl,
+          ...business.social.map((s) => s.href),
+        ],
         priceRange: "$$",
       },
       {

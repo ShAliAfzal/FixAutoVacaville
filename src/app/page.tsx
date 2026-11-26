@@ -16,7 +16,7 @@ import { buildMetadata, webPageJsonLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Collision & Auto Body Repair in Vacaville, CA | Fix Auto Vacaville",
   description:
-    "Fix Auto Vacaville - collision repair, auto body, paintless dent repair, paint & windshield services at 70 Peabody Road. 4.7★ Google rating. Call (707) 898-7313.",
+    "Expert collision and auto body repair in Vacaville, CA. Fix Auto Vacaville at 70 Peabody Road - free photo estimates, insurance help, paint, dent and glass. 4.7 Google rating. Call (707) 898-7313.",
   path: "/",
 });
 

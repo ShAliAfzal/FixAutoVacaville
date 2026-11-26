@@ -50,6 +50,23 @@ export const business = {
     "https://fixautousa.com/locations/ca/vacaville/fix-auto-vacaville-24240/",
   mapEmbedUrl:
     "https://www.google.com/maps?q=70+Peabody+Road,+Vacaville,+CA+95687&output=embed",
+  social: [
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/100493015399834",
+      network: "facebook" as const,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/fixautousa/",
+      network: "instagram" as const,
+    },
+    {
+      label: "YouTube",
+      href: "https://www.youtube.com/c/FixAutoUSA",
+      network: "youtube" as const,
+    },
+  ],
 } as const;
 
 export const fullAddress = `${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}`;

@@ -5,13 +5,13 @@ import { useCallback, useId, useRef, useState } from "react";
 import { Section, SectionHeading } from "@/components/ui/Section";
 
 /**
- * Interactive comparison slider.
- * Imagery is industry-representative workshop / finish photography -
- * not claimed as a specific Fix Auto Vacaville customer vehicle.
+ * Interactive wipe of a real Fix Auto Vacaville RAM 3500 repair.
+ * Before/after are the same driver-side three-quarter angle, cropped
+ * to register the front fascia for a clean comparison.
  */
 export function BeforeAfter() {
   const id = useId();
-  const [pos, setPos] = useState(52);
+  const [pos, setPos] = useState(50);
   const frameRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
 
@@ -44,9 +44,9 @@ export function BeforeAfter() {
         <SectionHeading
           id="compare-heading"
           align="center"
-          eyebrow="Repair transformation"
-          title="From damaged panel to finished surface"
-          lede="Drag the handle to compare unfinished bodywork with a refinished panel. These are representative shop photographs used to illustrate the repair journey - not labeled as a specific customer vehicle."
+          eyebrow="Real Vacaville repair"
+          title="Same truck. Stripped front end to finished chrome."
+          lede="Drag the handle to compare this white RAM 3500 before and after front-end collision repair at Fix Auto Vacaville - bumper and grille off the vehicle, then restored to a clean factory finish."
         />
 
         <div
@@ -58,11 +58,11 @@ export function BeforeAfter() {
           onPointerCancel={onPointerUp}
         >
           <Image
-            src="/images/blue-sedan-gloss-paint-finish.jpg"
-            alt="Vehicle with a completed gloss paint finish after refinish work"
+            src="/images/compare-after-v5.jpg"
+            alt="White RAM 3500 after collision repair with restored chrome grille, bumper, headlight, and gloss finish"
             fill
             sizes="(max-width: 1024px) 100vw, 64rem"
-            className="object-cover"
+            className="object-cover object-center"
             draggable={false}
           />
 
@@ -71,11 +71,11 @@ export function BeforeAfter() {
             style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
           >
             <Image
-              src="/images/body-shop-vehicle-in-primer.jpg"
-              alt="Vehicle in primer during body repair before paint"
+              src="/images/compare-before-v5.jpg"
+              alt="White RAM 3500 with front bumper, grille, and headlight removed during collision repair"
               fill
               sizes="(max-width: 1024px) 100vw, 64rem"
-              className="object-cover"
+              className="object-cover object-center"
               draggable={false}
             />
           </div>
@@ -91,14 +91,14 @@ export function BeforeAfter() {
           </div>
 
           <span className="pointer-events-none absolute top-4 left-4 rounded-md bg-navy-950/70 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-            During repair
+            Before
           </span>
           <span className="pointer-events-none absolute top-4 right-4 rounded-md bg-navy-950/70 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-            Finished look
+            After
           </span>
 
           <label htmlFor={id} className="sr-only">
-            Compare before and after repair imagery
+            Compare before and after collision repair on a white RAM truck
           </label>
           <input
             id={id}
@@ -111,7 +111,7 @@ export function BeforeAfter() {
             aria-valuemin={4}
             aria-valuemax={96}
             aria-valuenow={Math.round(pos)}
-            aria-valuetext={`${Math.round(pos)} percent revealing unfinished repair`}
+            aria-valuetext={`${Math.round(pos)} percent revealing the before repair photo`}
           />
         </div>
       </div>

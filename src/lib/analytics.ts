@@ -12,6 +12,7 @@ export type ConversionEvent =
   | "estimate_form_error"
   | "directions_click"
   | "email_click"
+  | "social_click"
   | "reviews_link_click"
   | "service_cta_click";
 

@@ -9,7 +9,7 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { buildMetadata, webPageJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Auto Body & Collision Services in Vacaville | Fix Auto",
+  title: "Auto Body & Collision Services in Vacaville | Fix Auto Vacaville",
   description:
     "Browse collision repair, auto body, paintless dent repair, paint, windshield and post-collision inspection services at Fix Auto Vacaville, 70 Peabody Road.",
   path: "/services",

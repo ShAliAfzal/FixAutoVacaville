@@ -106,7 +106,7 @@ export default function AboutPage() {
                 </a>
               </p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-bold text-blue-600">
-                Contact & estimate form →
+                Contact & estimate form
               </Link>
             </div>
           </div>

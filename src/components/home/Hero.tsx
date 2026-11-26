@@ -27,9 +27,11 @@ export function Hero() {
 
       <div className="container-x relative flex min-h-[min(92vh,820px)] flex-col justify-end pb-16 pt-28 sm:justify-center sm:pb-24 sm:pt-32 lg:pb-28">
         <div className="max-w-2xl hero-fade-in">
-          <p className="eyebrow mb-5 text-blue-400">Vacaville Collision & Auto Body</p>
+          <p className="eyebrow mb-5 text-blue-400">
+            70 Peabody Road · Free photo estimates
+          </p>
           <h1 className="headline-xl text-white">
-            Expert collision repair on Peabody Road
+            Expert Collision & Auto Body Repair in Vacaville, CA
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
             Fix Auto Vacaville restores vehicles after accidents with clear estimates, insurance
@@ -64,13 +66,20 @@ export function Hero() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/80 hero-fade-in-delay">
-            <div className="inline-flex items-center gap-2">
+            <TrackedA
+              href={business.googleReviewsUrl}
+              event="reviews_link_click"
+              payload={{ location: "hero" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-white"
+            >
               <StarRating rating={business.googleRating} size={15} />
               <span>
                 <strong className="text-white">{business.googleRating}</strong> ·{" "}
                 {business.googleReviewCountLabel} Google reviews
               </span>
-            </div>
+            </TrackedA>
             <div className="inline-flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-blue-400" aria-hidden="true" />
               Nationwide limited lifetime warranty
